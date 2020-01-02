@@ -16,4 +16,14 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+    public static int teleOpMode = 0;
+
+	public static final int RJoy_PORT = 0;
+	public static final int RMotor1_Channel = 0;
+	public static final int RMotor2_Channel = 1;
+	public static final int RMotor3_Channel = 2;
+	public static final int LMotor1_Channel = 3;
+	public static final int LMotor2_Channel = 4;
+	public static final int LMotor3_Channel = 5;
 }
