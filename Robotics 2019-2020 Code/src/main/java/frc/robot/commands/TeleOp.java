@@ -20,11 +20,9 @@ public class TeleOp extends CommandBase {
    * Creates a new TeleOp.
    */
 
-  DifferentialDrive dDrive;
 
-  public TeleOp(DifferentialDrive d) {
+  public TeleOp() {
     // Use addRequirements() here to declare subsystem dependencies.
-    dDrive  = d;
     addRequirements(RobotContainer.driveTrain);
   }
 
@@ -36,11 +34,8 @@ public class TeleOp extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(Constants.teleOpMode == 1)
-    {
-      Joystick[] Joysticks = RobotContainer.getJoysticks();
-      dDrive.tankDrive(Joysticks[0].getRawAxis(0), Joysticks[0].getRawAxis(0));
-    }
+      DriveTrain.MoveTeleOp(-RobotContainer.RJoy.getRawAxis(0), -RobotContainer.LJoy.getRawAxis(0));
+    
   }
 
   // Called once the command ends or is interrupted.

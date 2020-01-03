@@ -18,20 +18,12 @@ import frc.robot.commands.TeleOp;
 
 public class DriveTrain extends SubsystemBase {
 
-  private Talon RMotor1 = new Talon(Constants.RMotor1_Channel);
-  private Talon RMotor2 = new Talon(Constants.RMotor2_Channel);
-  private Talon RMotor3 = new Talon(Constants.RMotor3_Channel);
-  private SpeedControllerGroup RightMotors = new SpeedControllerGroup(RMotor1, RMotor2, RMotor3);
-
-  private Talon LMotor1 = new Talon(Constants.LMotor1_Channel);
-  private Talon LMotor2 = new Talon(Constants.LMotor2_Channel);
-  private Talon LMotor3 = new Talon(Constants.LMotor3_Channel);
-  private SpeedControllerGroup LeftMotors = new SpeedControllerGroup(RMotor1, RMotor2, RMotor3);
-
-  private DifferentialDrive dDrive = new DifferentialDrive(LeftMotors, RightMotors);
-
+  public void initDefaultCommand() 
+	{
+      setDefaultCommand(new TeleOp());
+	}
   public DriveTrain() {
-    setDefaultCommand(new TeleOp(dDrive));
+    setDefaultCommand(new TeleOp());
   }
 
   @Override
@@ -39,9 +31,8 @@ public class DriveTrain extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void MoveTeleOp() {
+  public static void MoveTeleOp(double leftSpeed, double rightSpeed) {
+		Constants.dDrive.tankDrive(leftSpeed, rightSpeed);
+	}
 
-    
-
-  }
 }

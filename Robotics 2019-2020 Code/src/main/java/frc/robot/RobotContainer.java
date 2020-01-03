@@ -22,14 +22,15 @@ import frc.robot.subsystems.DriveTrain;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  public static DriveTrain driveTrain;
-  private static Joystick RJoy;
+  public static DriveTrain driveTrain = new DriveTrain();
+  public static Joystick RJoy;
+  public static Joystick LJoy;
+  public static Command TeleOp;
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    driveTrain = new DriveTrain();
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -42,6 +43,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     RJoy = new Joystick(Constants.RJoy_PORT);
+    LJoy = new Joystick(Constants.LJoy_PORT);
   }
 
 
@@ -54,8 +56,4 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return null;
     }
-
-  public static Joystick[] getJoysticks() {
-	  return new Joystick[]{RJoy};
   }
-}
